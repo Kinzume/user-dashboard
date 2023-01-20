@@ -18,6 +18,7 @@ const initialState = {
 export default function Section2() {
   const [active, setActive] = useState(initialState);
   const settings = {
+    arrows: false,
     autoplay: true,
     dots: true,
     infinite: true,
