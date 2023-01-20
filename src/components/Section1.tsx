@@ -1,4 +1,3 @@
-import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -8,6 +7,7 @@ export default function Section1() {
   return (
     <Box
       sx={{
+        height: "100%",
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         borderRadius: 4,
