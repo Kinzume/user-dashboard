@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import Section1 from "./Section1";
 import Section2 from "./Section2/Section2";
 import Section3 from "./Section3/Section3";
+import Section4 from "./Section4/Section4";
 export default function Main() {
   return (
     <Box component="main">
@@ -68,6 +69,13 @@ export default function Main() {
               color={"#00ff08"}
               series={[{ name: "", data: [30, 65, 49, 55, 60, 55, 40, 37] }]}
             />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+          >
+            <Section4 />
           </Grid>
         </Grid>
       </Container>
