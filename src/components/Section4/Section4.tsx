@@ -38,16 +38,25 @@ export default function Section4() {
         },
       },
       plotOptions: {
-        bar: {
-          borderRadius: 2,
+        pie: {
+          donut: {
+            labels: {
+              show: true,
+              value: {
+                fontWeight: 600,
+              },
+              total: {
+                show: true,
+                fontSize: "12px",
+                fontWeight: 600,
+              },
+            },
+          },
         },
       },
+      labels: ["Mac", "Window", "IOS", "Android"],
     },
-    series: [44, 55, 41, 17, 15],
-
-    chartOptions: {
-      labels: ["Apple", "Mango", "Orange", "Watermelon"],
-    },
+    series: [188888, 310213, 281100, 289540],
   };
   const [config, setConfig] = useState(initConfig);
   return (
