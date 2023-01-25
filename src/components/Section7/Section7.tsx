@@ -155,9 +155,9 @@ function TopRatedApps({
           <g
             id="Icons"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g
               id="Color-"
@@ -189,9 +189,9 @@ function TopRatedApps({
           <g
             id="Icons"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g
               id="Color-"
@@ -208,9 +208,9 @@ function TopRatedApps({
           <g
             id="Icons"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g
               id="Color-"
@@ -227,9 +227,9 @@ function TopRatedApps({
           <g
             id="Icons"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g
               id="Color-"
@@ -315,7 +315,7 @@ export default function Section7() {
   return (
     <Paper
       elevation={3}
-      sx={{ overflow: "scroll", borderRadius: 3 }}
+      sx={{ overflow: "auto", borderRadius: 3 }}
     >
       <Typography sx={{ fontWeight: 500, typography: "h6", p: 2 }}>
         Top Rated Applications
