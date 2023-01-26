@@ -3,6 +3,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./Section2.css";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 interface Active {
   currentSlide: number;
@@ -56,7 +58,7 @@ export default function Slide({
           </div>
         </Box>
         <Box sx={{ height: "280px" }}>
-          <img
+          {/* <img
             src={src}
             alt={`Slide ${index + 1}`}
             style={{
@@ -65,6 +67,17 @@ export default function Slide({
               objectFit: "cover",
               objectPosition: "center",
             }}
+          /> */}
+          <LazyLoadImage
+            src={src}
+            alt={`Slide ${index + 1}`}
+            effect="blur"
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+            width="100%"
+            height="280"
           />
         </Box>
         <div
