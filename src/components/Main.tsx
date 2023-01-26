@@ -10,6 +10,7 @@ import Section5 from "./Section5/Section5";
 import Section6 from "./Section6/Section6";
 import Section7 from "./Section7/Section7";
 import Section8 from "./Section8/Section8";
+import Section9 from "./Section9/Section9";
 export default function Main() {
   return (
     <Box component="main">
@@ -108,6 +109,13 @@ export default function Main() {
             md={4}
           >
             <Section8 />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+          >
+            <Section9 />
           </Grid>
         </Grid>
       </Container>
