@@ -77,9 +77,11 @@ export default function Section8() {
         Top Installed Countries
       </Typography>
       {country.map((country) => (
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box
+          key={country.countryID}
+          sx={{ display: "flex", alignItems: "center" }}
+        >
           <Country
-            key={country.countryID}
             countryID={country.countryID}
             name={country.name}
           />
