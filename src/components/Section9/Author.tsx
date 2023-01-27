@@ -7,15 +7,12 @@ import { alpha } from "@mui/material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { RandomUser } from "../../types/apis";
+import { getRandomArbitrary } from "../../Utils/Utils";
 
 /** SVG credits
  * Heart: https://www.svgrepo.com/svg/449777/heart
  * Trophy: https://www.svgrepo.com/svg/391110/trophy
  */
-
-function getRandomArbitrary(min: number, max: number) {
-  return Math.random() * (max - min) + min;
-}
 
 type Props = { loading: boolean; error: boolean; authorData: RandomUser };
 

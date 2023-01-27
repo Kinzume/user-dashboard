@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Section1 from "./Section1";
+import Section10 from "./Section10/Section10";
 import Section2 from "./Section2/Section2";
 import Section3 from "./Section3/Section3";
 import Section4 from "./Section4/Section4";
@@ -115,7 +116,14 @@ export default function Main() {
             xs={12}
             md={4}
           >
-            <Section9 />
+            {/* <Section9 /> */}
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+          >
+            <Section10 />
           </Grid>
         </Grid>
       </Container>
