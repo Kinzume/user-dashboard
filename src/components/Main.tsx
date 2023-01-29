@@ -1,9 +1,7 @@
-import { styled } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Section1 from "./Section1";
-import Section10 from "./Section10/Section10";
 import Section2 from "./Section2/Section2";
 import Section3 from "./Section3/Section3";
 import Section4 from "./Section4/Section4";
@@ -12,6 +10,7 @@ import Section6 from "./Section6/Section6";
 import Section7 from "./Section7/Section7";
 import Section8 from "./Section8/Section8";
 import Section9 from "./Section9/Section9";
+import Section10 from "./Section10/Section10";
 export default function Main() {
   return (
     <Box component="main">
