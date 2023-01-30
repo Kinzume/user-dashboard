@@ -1,65 +1,90 @@
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-
 import Typography from "@mui/material/Typography";
+import { getRandomArbitrary } from "../../Utils/Utils";
 import Android from "./Android";
 import Apple from "./Apple";
 import Country from "./Country";
 import Windows from "./Windows";
+import { ReactComponent as Germany } from "../../assets/flag-for-flag-germany-svgrepo-com.svg";
+import { ReactComponent as UK } from "../../assets/flag-england-svgrepo-com.svg";
+import { ReactComponent as France } from "../../assets/flag-for-flag-france-svgrepo-com.svg";
+import { ReactComponent as SouthKorea } from "../../assets/south-korea-svgrepo-com.svg";
+import { ReactComponent as US } from "../../assets/united-states-svgrepo-com.svg";
+import { ReactComponent as Placeholder } from "../../assets/rectangle-svgrepo-com.svg";
 
-/** SVG Icon credits:
- * Germany: https://www.svgrepo.com/svg/405490/flag-for-flag-germany
- * UK: https://www.svgrepo.com/svg/248821/united-kingdom-uk
- * France: https://www.svgrepo.com/svg/405485/flag-for-flag-france
- * South Korea: https://www.svgrepo.com/svg/248974/south-korea
- * USA: https://www.svgrepo.com/svg/248851/united-states
- */
-const country = [
+type Countries = {
+  countryID: number;
+  name: string;
+  androidDownloads: string;
+  windowsDownloads: string;
+  appleDownloads: string;
+};
+const countries: Countries[] = [
   {
     countryID: 0,
     name: "Germany",
-    androidDownloads: "16.16k",
-    windowsDownloads: "47.25k",
-    appleDownloads: "47.25k",
+    androidDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    windowsDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    appleDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
   },
   {
     countryID: 1,
     name: "UK",
-    androidDownloads: "16.16k",
-    windowsDownloads: "47.25k",
-    appleDownloads: "47.25k",
+    androidDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    windowsDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    appleDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
   },
   {
     countryID: 2,
     name: "France",
-    androidDownloads: "16.16k",
-    windowsDownloads: "47.25k",
-    appleDownloads: "47.25k",
+    androidDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    windowsDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    appleDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
   },
   {
     countryID: 3,
     name: "South Korea",
-    androidDownloads: "16.16k",
-    windowsDownloads: "47.25k",
-    appleDownloads: "47.25k",
+    androidDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    windowsDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    appleDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
   },
   {
     countryID: 4,
-    name: "USA",
-    androidDownloads: "16.16k",
-    windowsDownloads: "47.25k",
-    appleDownloads: "47.25k",
+    name: "US",
+    androidDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    windowsDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    appleDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
   },
   {
     countryID: 5,
     name: "Orion",
-    androidDownloads: "16.16k",
-    windowsDownloads: "47.25k",
-    appleDownloads: "47.25k",
+    androidDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    windowsDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    appleDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
   },
 ];
 
+const flags = [Germany, UK, France, SouthKorea, US, Placeholder];
+
+function Component(countryName: string): React.ElementType<any> {
+  const flag =
+    countryName === "Germany"
+      ? Germany
+      : countryName === "UK"
+      ? UK
+      : countryName === "France"
+      ? France
+      : countryName === "South Korea"
+      ? SouthKorea
+      : countryName === "US"
+      ? US
+      : Placeholder;
+  return flag;
+}
+
 export default function Section8() {
+  console.log(flags);
   return (
     <Paper
       elevation={3}
@@ -76,14 +101,14 @@ export default function Section8() {
       <Typography sx={{ fontWeight: 500, typography: "h6", p: 2 }}>
         Top Installed Countries
       </Typography>
-      {country.map((country) => (
+      {countries.map((country) => (
         <Box
           key={country.countryID}
           sx={{ display: "flex", alignItems: "center" }}
         >
           <Country
-            countryID={country.countryID}
             name={country.name}
+            component={Component(country.name)}
           />
           <Android androidDownloads={country.androidDownloads} />
           <Windows windowsDownloads={country.windowsDownloads} />
