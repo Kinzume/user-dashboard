@@ -5,7 +5,7 @@ import { RandomUser } from "../../types/apis";
 export default function useRandomData() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [results, setResults] = useState<RandomUser[] | []>([]);
+  const [results, setResults] = useState<RandomUser[]>([]);
 
   const getRandomData = async (config: AxiosRequestConfig<any>) => {
     try {
@@ -14,6 +14,7 @@ export default function useRandomData() {
       setError(false);
       return setLoading(false);
     } catch (error) {
+      if (config.signal?.aborted) return;
       setError(true);
       return setLoading(false);
     }

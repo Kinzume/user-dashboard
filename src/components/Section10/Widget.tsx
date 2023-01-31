@@ -2,10 +2,16 @@ import { useState } from "react";
 import Chart from "react-apexcharts";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import SvgIcon from "@mui/material/SvgIcon";
+import { ApexOptions } from "apexcharts";
 
 type Props = {
   colors: string[];
-  backgroundSvg: JSX.Element;
+  backgroundSvg: React.FunctionComponent<
+    React.SVGProps<SVGSVGElement> & {
+      title?: string | undefined;
+    }
+  >;
   percentage: number;
   heading: string;
   total: number;
@@ -18,81 +24,75 @@ export default function Widget({
   heading,
   total,
 }: Props) {
-  const initConfig = {
-    options: {
-      colors: [colors[0]],
-      chart: {
-        id: "basic-donut",
-        // toolbar: {
-        //   show: false,
-        // },
-        zoom: {
-          enabled: false,
+  const config: ApexOptions = {
+    chart: {
+      id: "basic-donut",
+      zoom: {
+        enabled: false,
+      },
+    },
+    colors: [colors[0]],
+    dataLabels: {
+      enabled: true,
+    },
+    grid: {
+      show: false,
+    },
+    labels: ["Progress"],
+    legend: {
+      show: false,
+    },
+    plotOptions: {
+      radialBar: {
+        hollow: {},
+        track: {
+          background: "rgba(255, 255, 255, 0.1)",
         },
-      },
-      xaxis: {
-        labels: { show: false },
-        axisTicks: { show: false },
-      },
-      yaxis: {
-        labels: { show: false },
-      },
-      dataLabels: {
-        enabled: true,
-      },
-      grid: {
-        show: false,
-      },
-      tooltip: {
-        x: {
-          show: false,
-        },
-        marker: {
-          show: false,
-        },
-      },
-      plotOptions: {
-        radialBar: {
-          hollow: {},
-          track: {
-            background: "rgba(255, 255, 255, 0.1)",
+        dataLabels: {
+          show: true,
+          name: {
+            show: false,
           },
-          dataLabels: {
+          value: {
             show: true,
-            name: {
-              show: false,
-            },
-            value: {
-              show: true,
-              fontSize: "0.8rem",
-              offsetY: 5,
-              color: "rgba(255, 255, 255, 1)",
-              fontWeight: "600",
-            },
+            fontSize: "0.8rem",
+            offsetY: 5,
+            color: "rgba(255, 255, 255, 1)",
+            fontWeight: "600",
           },
         },
       },
-      legend: {
-        show: false,
-      },
-      stroke: { lineCap: "round" },
     },
     series: [percentage],
-    labels: ["Progress"],
+    stroke: { lineCap: "round" },
+    tooltip: {
+      x: {
+        show: false,
+      },
+      marker: {
+        show: false,
+      },
+    },
+    xaxis: {
+      labels: { show: false },
+      axisTicks: { show: false },
+    },
+    yaxis: {
+      labels: { show: false },
+    },
   };
-
-  const [config, setConfig] = useState<any | null>(initConfig);
+  const [options, setOptions] = useState<ApexOptions>(config);
 
   return (
     <Stack
-      sx={{ bgcolor: colors[1], borderRadius: 5 }}
+      sx={{ bgcolor: colors[1], borderRadius: 5, overflow: "hidden" }}
       direction="row"
       alignItems="center"
       position="relative"
     >
       <Chart
-        options={config?.options}
-        series={config?.series}
+        options={options}
+        series={options?.series}
         type="radialBar"
         width="125px"
         height="125px"
@@ -107,7 +107,22 @@ export default function Widget({
           {heading}
         </Typography>
       </Stack>
-      {backgroundSvg}
+      <SvgIcon
+        sx={{
+          width: "fit-content",
+          lineHeight: 0,
+          p: 0.5,
+          fontSize: "5rem",
+          borderRadius: 2,
+          color: "#FFFFFF",
+          opacity: "0.15",
+          position: "absolute",
+          top: "0.5rem",
+          right: "-1rem",
+        }}
+        component={backgroundSvg}
+        inheritViewBox={true}
+      />
     </Stack>
   );
 }

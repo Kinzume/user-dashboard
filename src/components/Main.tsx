@@ -115,7 +115,7 @@ export default function Main() {
             xs={12}
             md={4}
           >
-            {/* <Section9 /> */}
+            <Section9 />
           </Grid>
           <Grid
             item
