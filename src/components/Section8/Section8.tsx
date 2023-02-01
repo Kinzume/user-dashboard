@@ -1,73 +1,77 @@
-import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { getRandomArbitrary } from "../../Utils/Utils";
-import Android from "./Android";
-import Apple from "./Apple";
-import Country from "./Country";
-import Windows from "./Windows";
 import { ReactComponent as Germany } from "../../assets/flag-for-flag-germany-svgrepo-com.svg";
 import { ReactComponent as UK } from "../../assets/flag-england-svgrepo-com.svg";
 import { ReactComponent as France } from "../../assets/flag-for-flag-france-svgrepo-com.svg";
 import { ReactComponent as SouthKorea } from "../../assets/south-korea-svgrepo-com.svg";
 import { ReactComponent as US } from "../../assets/united-states-svgrepo-com.svg";
 import { ReactComponent as Placeholder } from "../../assets/rectangle-svgrepo-com.svg";
+import Country from "./Country";
 
 type Countries = {
   countryID: number;
   name: string;
-  androidDownloads: string;
-  windowsDownloads: string;
-  appleDownloads: string;
+  downloads: { [index: string]: string }[];
 };
 const countries: Countries[] = [
   {
     countryID: 0,
     name: "Germany",
-    androidDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
-    windowsDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
-    appleDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    downloads: [
+      { android: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+      { windows: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+      { apple: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+    ],
   },
   {
     countryID: 1,
     name: "UK",
-    androidDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
-    windowsDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
-    appleDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    downloads: [
+      { android: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+      { windows: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+      { apple: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+    ],
   },
   {
     countryID: 2,
     name: "France",
-    androidDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
-    windowsDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
-    appleDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    downloads: [
+      { android: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+      { windows: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+      { apple: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+    ],
   },
   {
     countryID: 3,
     name: "South Korea",
-    androidDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
-    windowsDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
-    appleDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    downloads: [
+      { android: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+      { windows: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+      { apple: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+    ],
   },
   {
     countryID: 4,
     name: "US",
-    androidDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
-    windowsDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
-    appleDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    downloads: [
+      { android: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+      { windows: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+      { apple: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+    ],
   },
   {
     countryID: 5,
     name: "Orion",
-    androidDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
-    windowsDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
-    appleDownloads: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k`,
+    downloads: [
+      { android: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+      { windows: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+      { apple: `${Math.round(getRandomArbitrary(10000, 50000) / 1000)}k` },
+    ],
   },
 ];
 
-const flags = [Germany, UK, France, SouthKorea, US, Placeholder];
-
-function Component(countryName: string): React.ElementType<any> {
+function getFlag(countryName: string) {
   const flag =
     countryName === "Germany"
       ? Germany
@@ -84,7 +88,6 @@ function Component(countryName: string): React.ElementType<any> {
 }
 
 export default function Section8() {
-  console.log(flags);
   return (
     <Paper
       elevation={3}
@@ -102,18 +105,12 @@ export default function Section8() {
         Top Installed Countries
       </Typography>
       {countries.map((country) => (
-        <Box
+        <Country
           key={country.countryID}
-          sx={{ display: "flex", alignItems: "center" }}
-        >
-          <Country
-            name={country.name}
-            component={Component(country.name)}
-          />
-          <Android androidDownloads={country.androidDownloads} />
-          <Windows windowsDownloads={country.windowsDownloads} />
-          <Apple appleDownloads={country.appleDownloads} />
-        </Box>
+          name={country.name}
+          flag={getFlag(country.name)}
+          downloads={country.downloads}
+        />
       ))}
     </Paper>
   );
