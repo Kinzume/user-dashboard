@@ -44,6 +44,7 @@ export default function InvoiceTable() {
               <TableCell
                 component="th"
                 scope="row"
+                sx={{ whiteSpace: "nowrap" }}
               >
                 {invoice?.ID}
               </TableCell>
