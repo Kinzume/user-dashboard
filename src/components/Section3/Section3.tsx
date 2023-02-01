@@ -1,135 +1,50 @@
-import { useState } from "react";
-import Chart from "react-apexcharts";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import TrendingDownIcon from "@mui/icons-material/TrendingDown";
-import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
+import Stack from "@mui/material/Stack";
+import Widget from "./Widget";
 
-interface Section3Props {
-  title: string;
-  trend: string;
-  growth: string;
-  total: string;
-  color: string;
-  series: ApexAxisChartSeries;
-}
-export default function Section3({
-  title,
-  trend,
-  growth,
-  total,
-  color,
-  series,
-}: Section3Props) {
-  const initConfig = {
-    options: {
-      colors: [color],
-      chart: {
-        id: "basic-bar",
-        toolbar: {
-          show: false,
-        },
-        zoom: {
-          enabled: false,
-        },
-      },
-      xaxis: {
-        labels: { show: false },
-        axisTicks: { show: false },
-      },
-      yaxis: {
-        labels: { show: false },
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      grid: {
-        show: false,
-      },
-      tooltip: {
-        x: {
-          show: false,
-        },
-        marker: {
-          show: false,
-        },
-      },
-      plotOptions: {
-        bar: {
-          borderRadius: 2,
-        },
-      },
-    },
-    series: series,
-  };
-  const [config, setConfig] = useState(initConfig);
+const data = [
+  {
+    title: "Total Active Users",
+    trend: "increase",
+    growth: "+2.6%",
+    total: "18,765",
+    color: "#05a7f2",
+    series: [{ name: "", data: [30, 40, 65, 55, 49, 60, 55, 37] }],
+  },
+  {
+    title: "Total Installed",
+    trend: "",
+    growth: "0%",
+    total: "0",
+    color: "#E91E63",
+    series: [{ name: "", data: [30, 65, 40, 37, 49, 60, 55, 55] }],
+  },
+  {
+    title: "Total Downloads",
+    trend: "decrease",
+    growth: "-0.1%",
+    total: "678",
+    color: "#00ff08",
+    series: [{ name: "", data: [30, 65, 49, 55, 60, 55, 40, 37] }],
+  },
+];
+
+export default function Section3() {
   return (
-    <Paper
-      elevation={3}
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        py: 1.5,
-        px: 2,
-        borderRadius: 4,
-      }}
+    <Stack
+      direction={{ xs: "column", md: "row" }}
+      spacing={2}
     >
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 0.4 }}>
-        <Typography sx={{ typography: "body2" }}>{title}</Typography>
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 0.5,
-            width: "fit-content",
-          }}
-        >
-          {trend === "increase" ? (
-            <TrendingUpIcon
-              sx={{
-                color: "green",
-                backgroundColor: "#adff2f69",
-                borderRadius: 5,
-                p: 0.4,
-                typography: "h6",
-              }}
-            />
-          ) : trend === "decrease" ? (
-            <TrendingDownIcon
-              sx={{
-                color: "#b10000",
-                backgroundColor: "#ff353545",
-                borderRadius: 5,
-                p: 0.4,
-                typography: "h6",
-              }}
-            />
-          ) : (
-            <TrendingFlatIcon
-              sx={{
-                color: "grey",
-                backgroundColor: "#b3b3b359",
-                borderRadius: 5,
-                p: 0.4,
-                typography: "h6",
-              }}
-            />
-          )}
-
-          <Typography sx={{ typography: "caption" }}>{growth}</Typography>
-        </Box>
-        <Typography sx={{ typography: "h6" }}>{total}</Typography>
-      </Box>
-      <Chart
-        options={config.options}
-        series={config.series}
-        type="bar"
-        width="75px"
-        height="75px"
-      />
-    </Paper>
+      {data.map((value, index) => (
+        <Widget
+          key={index}
+          title={value.title}
+          trend={value.trend}
+          growth={value.growth}
+          total={value.total}
+          color={value.color}
+          series={value.series}
+        />
+      ))}
+    </Stack>
   );
 }
