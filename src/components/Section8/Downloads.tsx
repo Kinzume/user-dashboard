@@ -16,7 +16,7 @@ const AndroidSvg = (
     }}
     component={Android}
     inheritViewBox={true}
-  ></SvgIcon>
+  />
 );
 const AppleSvg = (
   <SvgIcon
@@ -29,7 +29,7 @@ const AppleSvg = (
     }}
     component={Apple}
     inheritViewBox={true}
-  ></SvgIcon>
+  />
 );
 const WindowsSvg = (
   <SvgIcon
@@ -42,7 +42,7 @@ const WindowsSvg = (
     }}
     component={Windows}
     inheritViewBox={true}
-  ></SvgIcon>
+  />
 );
 
 function OperatingSystem({

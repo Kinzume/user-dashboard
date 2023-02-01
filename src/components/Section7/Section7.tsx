@@ -59,7 +59,10 @@ export default function Section7() {
       elevation={3}
       sx={{ overflow: "auto", borderRadius: 3 }}
     >
-      <Typography sx={{ fontWeight: 500, typography: "h6", p: 2 }}>
+      <Typography
+        variant={"h2"}
+        sx={{ fontWeight: 500, typography: "h6", p: 2 }}
+      >
         Top Rated Applications
       </Typography>
       {data?.map((app) => (

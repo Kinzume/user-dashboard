@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { ReactComponent as Logo } from "../assets/undraw_dashboard_re_3b76.svg";
+import { ReactComponent as Logo } from "../../assets/undraw_dashboard_re_3b76.svg";
 
 export default function Section1() {
   return (
@@ -26,12 +26,21 @@ export default function Section1() {
         }}
       >
         <Typography
+          component={"h2"}
+          variant="h5"
+          paragraph
+          sx={{ color: "primary.dark", fontWeight: 500, mb: 0 }}
+          gutterBottom
+        >
+          Welcome Back!
+        </Typography>
+        <Typography
           variant="h5"
           paragraph
           sx={{ color: "primary.dark", fontWeight: 500 }}
           gutterBottom
         >
-          Welcome Back!
+          Minimal UI Clone
         </Typography>
         <Typography
           variant="body2"

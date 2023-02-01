@@ -4,7 +4,7 @@ export default function Status({ status }: { status: string }): JSX.Element {
     <Box
       sx={{
         fontWeight: 500,
-        width: "fit-content",
+        width: "max-content",
         p: 1,
         borderRadius: 1,
         color:

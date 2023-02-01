@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Section1 from "./Section1";
+import Section1 from "./Section1/Section1";
 import Section2 from "./Section2/Section2";
 import Section3 from "./Section3/Section3";
 import Section4 from "./Section4/Section4";
@@ -44,6 +44,7 @@ export default function Main() {
             item
             xs={12}
             md={6}
+            lg={4}
           >
             <Section4 />
           </Grid>
@@ -51,41 +52,47 @@ export default function Main() {
             item
             xs={12}
             md={6}
+            lg={8}
           >
             <Section5 />
           </Grid>
           <Grid
             item
             xs={12}
-            md={7}
+            md={12}
+            lg={8}
           >
             <Section6 />
           </Grid>
           <Grid
             item
             xs={12}
-            md={5}
+            md={6}
+            lg={4}
           >
             <Section7 />
           </Grid>
           <Grid
             item
             xs={12}
-            md={4}
+            md={6}
+            lg={4}
           >
             <Section8 />
           </Grid>
           <Grid
             item
             xs={12}
-            md={4}
+            md={6}
+            lg={4}
           >
             <Section9 />
           </Grid>
           <Grid
             item
             xs={12}
-            md={4}
+            md={6}
+            lg={4}
           >
             <Section10 />
           </Grid>

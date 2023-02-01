@@ -4,13 +4,17 @@ import Typography from "@mui/material/Typography";
 import InvoiceTable from "./InvoiceTable";
 import Button from "@mui/material/Button";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
 export default function Section6() {
   return (
     <Paper
       elevation={3}
       sx={{ borderRadius: 4, display: "flex", flexDirection: "column" }}
     >
-      <Typography sx={{ fontWeight: 500, typography: "h6", p: 2 }}>
+      <Typography
+        variant={"h2"}
+        sx={{ fontWeight: 500, typography: "h6", p: 2 }}
+      >
         New Invoice
       </Typography>
       <InvoiceTable />
