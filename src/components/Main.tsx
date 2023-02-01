@@ -11,6 +11,7 @@ import Section7 from "./Section7/Section7";
 import Section8 from "./Section8/Section8";
 import Section9 from "./Section9/Section9";
 import Section10 from "./Section10/Section10";
+
 export default function Main() {
   return (
     <Box component="main">
@@ -36,44 +37,8 @@ export default function Main() {
           <Grid
             item
             xs={12}
-            md={4}
           >
-            <Section3
-              title={"Total Active Users"}
-              trend={"increase"}
-              growth={"+2.6%"}
-              total={"18,765"}
-              color={"#05a7f2"}
-              series={[{ name: "", data: [30, 40, 65, 55, 49, 60, 55, 37] }]}
-            />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={4}
-          >
-            <Section3
-              title={"Total Installed"}
-              trend={""}
-              growth={"0%"}
-              total={"0"}
-              color={"#E91E63"}
-              series={[{ name: "", data: [30, 65, 40, 37, 49, 60, 55, 55] }]}
-            />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={4}
-          >
-            <Section3
-              title={"Total Downloads"}
-              trend={"decrease"}
-              growth={"-0.1%"}
-              total={"678"}
-              color={"#00ff08"}
-              series={[{ name: "", data: [30, 65, 49, 55, 60, 55, 40, 37] }]}
-            />
+            <Section3 />
           </Grid>
           <Grid
             item
