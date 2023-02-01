@@ -1,10 +1,11 @@
-import Box from "@mui/material/Box";
-import SvgIcon from "@mui/material/SvgIcon";
-import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box/Box";
+import CountryName from "./CountryName";
+import Downloads from "./Downloads";
 
 export default function Country({
   name,
   flag,
+  downloads,
 }: {
   name: string;
   flag: React.FunctionComponent<
@@ -12,21 +13,15 @@ export default function Country({
       title?: string | undefined;
     }
   >;
+  downloads: { [index: string]: string }[];
 }) {
   return (
-    <Box sx={{ flexGrow: "1", display: "flex", alignItems: "center" }}>
-      <SvgIcon
-        sx={{
-          width: "fit-content",
-          lineHeight: 0,
-          p: 1,
-          fontSize: "2.5rem",
-          borderRadius: 2,
-        }}
-        component={flag}
-        inheritViewBox={true}
+    <Box sx={{ display: "flex", alignItems: "center" }}>
+      <CountryName
+        name={name}
+        flag={flag}
       />
-      <Typography sx={{ minWidth: "8rem" }}>{name}</Typography>
+      <Downloads downloads={downloads} />
     </Box>
   );
 }
