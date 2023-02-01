@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import SvgIcon from "@mui/material/SvgIcon";
 import { ApexOptions } from "apexcharts";
+import { useTheme } from "@mui/material/styles";
 
 type Props = {
   colors: string[];
@@ -24,6 +25,7 @@ export default function Widget({
   heading,
   total,
 }: Props) {
+  const theme = useTheme();
   const config: ApexOptions = {
     chart: {
       id: "basic-donut",
@@ -85,14 +87,19 @@ export default function Widget({
 
   return (
     <Stack
-      sx={{ bgcolor: colors[1], borderRadius: 5, overflow: "hidden" }}
+      sx={{
+        bgcolor: colors[1],
+        borderRadius: 5,
+        overflow: "hidden",
+        height: "100%",
+      }}
       direction="row"
       alignItems="center"
       position="relative"
     >
       <Chart
         options={options}
-        series={options?.series}
+        series={options.series}
         type="radialBar"
         width="125px"
         height="125px"
@@ -112,12 +119,12 @@ export default function Widget({
           width: "fit-content",
           lineHeight: 0,
           p: 0.5,
-          fontSize: "5rem",
+          fontSize: { xs: "5rem", md: "7rem" },
           borderRadius: 2,
           color: "#FFFFFF",
           opacity: "0.15",
           position: "absolute",
-          top: "0.5rem",
+          top: { xs: "10%", md: "15%" },
           right: "-1rem",
         }}
         component={backgroundSvg}

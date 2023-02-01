@@ -3,10 +3,18 @@ import Stack from "@mui/material/Stack";
 import { getRandomArbitrary } from "../../Utils/Utils";
 import { ReactComponent as Person } from "../../assets/person-svgrepo-com.svg";
 import { ReactComponent as Email } from "../../assets/email-svgrepo-com.svg";
+import { visuallyHidden } from "@mui/utils";
+import Box from "@mui/material/Box";
 
 export default function Section10() {
   return (
-    <Stack gap={3}>
+    <Stack
+      sx={{ height: "100%" }}
+      gap={3}
+    >
+      <Box sx={visuallyHidden}>
+        <h2>Conversion and Applications</h2>
+      </Box>
       <Widget
         colors={["#00e39d", "#007b55"]}
         backgroundSvg={Person}

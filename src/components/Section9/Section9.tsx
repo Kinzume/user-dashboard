@@ -20,7 +20,10 @@ export default function Section9() {
         overflow: "auto",
       }}
     >
-      <Typography sx={{ fontWeight: 500, typography: "h6", p: 2 }}>
+      <Typography
+        variant={"h2"}
+        sx={{ fontWeight: 500, typography: "h6", p: 2 }}
+      >
         Top Authors
       </Typography>
       {loading

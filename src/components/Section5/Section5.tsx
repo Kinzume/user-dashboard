@@ -7,6 +7,7 @@ import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { ApexOptions } from "apexcharts";
 
 const currentYear = [
   {
@@ -32,73 +33,73 @@ const previousYear = [
     data: [26435, 23448, 34453, 34340, 35690],
   },
 ];
+
 export default function Section5() {
-  const initConfig = {
-    options: {
-      colors: ["#9933ff", "#66DA26"],
-      stroke: {
-        show: true,
-        curve: "smooth",
+  const config: ApexOptions = {
+    chart: {
+      id: "basic-line",
+      type: "line",
+      toolbar: {
+        show: false,
       },
-      chart: {
-        id: "basic-line",
-        type: "line",
-        toolbar: {
-          show: false,
-        },
-        zoom: {
-          enabled: false,
-        },
-      },
-      xaxis: {
-        labels: {
-          show: true,
-        },
-        axisBorder: {
-          show: false,
-        },
-        axisTicks: { show: false },
-        tooltip: {
-          enabled: false,
-        },
-      },
-      yaxis: {
-        labels: { show: true },
-      },
-      dataLabels: {
+      zoom: {
         enabled: false,
       },
-      grid: {
-        show: true,
-        strokeDashArray: 4,
-      },
-      tooltip: {
-        x: {
-          show: false,
-        },
-        marker: {
-          show: true,
-        },
-      },
-      legend: {
-        show: true,
-        position: "top",
-        horizontalAlign: "right",
-      },
-      labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+    },
+    colors: ["#9933ff", "#66DA26"],
+    dataLabels: {
+      enabled: false,
+    },
+    grid: {
+      show: true,
+      strokeDashArray: 4,
+    },
+    labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+    legend: {
+      show: true,
+      position: "top",
+      horizontalAlign: "right",
     },
     series: currentYear,
+    stroke: {
+      show: true,
+      curve: "smooth",
+    },
+    tooltip: {
+      x: {
+        show: false,
+      },
+      marker: {
+        show: true,
+      },
+    },
+    xaxis: {
+      labels: {
+        show: true,
+      },
+      axisBorder: {
+        show: false,
+      },
+      axisTicks: { show: false },
+      tooltip: {
+        enabled: false,
+      },
+    },
+    yaxis: {
+      labels: { show: true },
+    },
   };
   const handleChange = (event: SelectChangeEvent) => {
     setYear(event.target.value as string);
-    const newConfig = {
-      ...config,
+    const newOptions = {
+      ...options,
       series: event.target.value === "2022" ? currentYear : previousYear,
     };
-    setConfig(newConfig);
+    setOptions(newOptions);
   };
-  const [config, setConfig] = useState<any | null>(initConfig);
+  const [options, setOptions] = useState<ApexOptions>(config);
   const [year, setYear] = useState("2022");
+
   return (
     <Paper
       elevation={3}
@@ -119,7 +120,10 @@ export default function Section5() {
         }}
       >
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Typography sx={{ fontWeight: 500, typography: "h6" }}>
+          <Typography
+            variant={"h2"}
+            sx={{ fontWeight: 500, typography: "h6" }}
+          >
             Area Installed
           </Typography>
           <Typography variant="body2">{"(+43%) than last year"}</Typography>
@@ -136,12 +140,14 @@ export default function Section5() {
           </Select>
         </FormControl>
       </Box>
-      <Chart
-        options={config?.options}
-        series={config?.series}
-        width="300px"
-        height="300px"
-      />
+      <Box sx={{ width: "100%", height: "400px" }}>
+        <Chart
+          options={options}
+          series={options.series}
+          width="100%"
+          height="100%"
+        />
+      </Box>
     </Paper>
   );
 }

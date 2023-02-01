@@ -1,5 +1,7 @@
 import Stack from "@mui/material/Stack";
 import Widget from "./Widget";
+import { visuallyHidden } from "@mui/utils";
+import Box from "@mui/material/Box";
 
 const data = [
   {
@@ -30,21 +32,26 @@ const data = [
 
 export default function Section3() {
   return (
-    <Stack
-      direction={{ xs: "column", md: "row" }}
-      spacing={2}
-    >
-      {data.map((value, index) => (
-        <Widget
-          key={index}
-          title={value.title}
-          trend={value.trend}
-          growth={value.growth}
-          total={value.total}
-          color={value.color}
-          series={value.series}
-        />
-      ))}
-    </Stack>
+    <>
+      <Box sx={visuallyHidden}>
+        <h2>Active Users, Installed and Downloads</h2>
+      </Box>
+      <Stack
+        direction={{ xs: "column", md: "row" }}
+        spacing={2}
+      >
+        {data.map((value, index) => (
+          <Widget
+            key={index}
+            title={value.title}
+            trend={value.trend}
+            growth={value.growth}
+            total={value.total}
+            color={value.color}
+            series={value.series}
+          />
+        ))}
+      </Stack>
+    </>
   );
 }

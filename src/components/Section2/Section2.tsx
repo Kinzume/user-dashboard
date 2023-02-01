@@ -3,12 +3,14 @@ import "slick-carousel/slick/slick-theme.css";
 import "./Section2.css";
 import Box from "@mui/material/Box";
 import Slider from "react-slick";
+import { Settings } from "react-slick/index";
 import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useState, useRef } from "react";
 import Slide from "./Slide";
+import { visuallyHidden } from "@mui/utils";
 
 const initialState = {
   currentSlide: 0,
@@ -16,7 +18,7 @@ const initialState = {
 };
 export default function Section2() {
   const [active, setActive] = useState(initialState);
-  const settings = {
+  const settings: Settings = {
     arrows: false,
     autoplay: true,
     dots: true,
@@ -33,22 +35,21 @@ export default function Section2() {
     },
     appendDots: (dots: any) => <ul>{dots}</ul>,
   };
-  const sliderRef = useRef<any>(null);
+
+  const sliderRef = useRef<Slider>(null);
 
   return (
     <Paper
       sx={{ position: "relative", borderRadius: 4 }}
       elevation={0}
     >
+      <Box sx={visuallyHidden}>
+        <h2>News</h2>
+      </Box>
       <Slider
         {...settings}
         ref={sliderRef}
       >
-        {/* Image credits:
-        Luis Felipe Lins: https://unsplash.com/photos/J2-wAQDckus
-        Varun Gaba: https://unsplash.com/photos/dcgB3CgidlU
-        Rachit Tank: https://unsplash.com/photos/2cFZ_FB08UM
-         */}
         <Slide
           active={active}
           index={0}
@@ -77,14 +78,14 @@ export default function Section2() {
         <IconButton
           aria-label="previous-slide"
           sx={{ color: "#ffffffcf" }}
-          onClick={() => sliderRef.current.slickPrev()}
+          onClick={() => sliderRef.current?.slickPrev()}
         >
           <ArrowBackIosNewIcon />
         </IconButton>
         <IconButton
           aria-label="next-slide"
           sx={{ color: "#ffffffcf" }}
-          onClick={() => sliderRef.current.slickNext()}
+          onClick={() => sliderRef.current?.slickNext()}
         >
           <ArrowForwardIosIcon />
         </IconButton>
