@@ -2,6 +2,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./News.css";
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import Slider from "react-slick";
 import { Settings } from "react-slick/index";
 import Paper from "@mui/material/Paper";
@@ -12,6 +13,15 @@ import { useState, useRef } from "react";
 import Slide from "./Slide";
 import { visuallyHidden } from "@mui/utils";
 
+const paperWrapperSx = { position: "relative", borderRadius: 4 };
+const stackArrowsSx = {
+  display: "flex",
+  width: "fit-content",
+  position: "absolute",
+  top: "10px",
+  right: "10px",
+};
+const iconButtonSx = { color: "#ffffffcf" };
 const initialState = {
   currentSlide: 0,
   nextSlide: 0,
@@ -40,7 +50,7 @@ export default function News() {
 
   return (
     <Paper
-      sx={{ position: "relative", borderRadius: 4 }}
+      sx={paperWrapperSx}
       elevation={0}
     >
       <Box sx={visuallyHidden}>
@@ -66,30 +76,25 @@ export default function News() {
           src={`https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1099&q=80`}
         />
       </Slider>
-      <Box
-        sx={{
-          display: "flex",
-          width: "fit-content",
-          position: "absolute",
-          top: "10px",
-          right: "10px",
-        }}
+      <Stack
+        direction="row"
+        sx={stackArrowsSx}
       >
         <IconButton
           aria-label="previous-slide"
-          sx={{ color: "#ffffffcf" }}
+          sx={iconButtonSx}
           onClick={() => sliderRef.current?.slickPrev()}
         >
           <ArrowBackIosNewIcon />
         </IconButton>
         <IconButton
           aria-label="next-slide"
-          sx={{ color: "#ffffffcf" }}
+          sx={iconButtonSx}
           onClick={() => sliderRef.current?.slickNext()}
         >
           <ArrowForwardIosIcon />
         </IconButton>
-      </Box>
+      </Stack>
     </Paper>
   );
 }
