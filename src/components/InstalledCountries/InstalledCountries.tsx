@@ -87,7 +87,7 @@ function getFlag(countryName: string) {
   return flag;
 }
 
-export default function Section8() {
+export default function InstalledCountries() {
   return (
     <Paper
       elevation={3}

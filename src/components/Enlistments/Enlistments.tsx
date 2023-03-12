@@ -6,7 +6,7 @@ import { ReactComponent as Email } from "../../assets/email-svgrepo-com.svg";
 import { visuallyHidden } from "@mui/utils";
 import Box from "@mui/material/Box";
 
-export default function Section10() {
+export default function Enlistments() {
   return (
     <Stack
       sx={{ height: "100%" }}

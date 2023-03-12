@@ -5,7 +5,24 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { ApexOptions } from "apexcharts";
 
-export default function Section4() {
+const paperWrapperSx = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  p: 3,
+  borderRadius: 3,
+  height: "100%",
+};
+const typographySx = {
+  width: "fit-content",
+  marginRight: "auto",
+  marginBottom: "auto",
+  fontWeight: 500,
+  typography: "h6",
+};
+
+export default function Downloads() {
   const config: ApexOptions = {
     chart: {
       zoom: {
@@ -75,25 +92,11 @@ export default function Section4() {
   return (
     <Paper
       elevation={3}
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        p: 3,
-        borderRadius: 3,
-        height: "100%",
-      }}
+      sx={paperWrapperSx}
     >
       <Typography
         component={"h2"}
-        sx={{
-          width: "fit-content",
-          marginRight: "auto",
-          marginBottom: "auto",
-          fontWeight: 500,
-          typography: "h6",
-        }}
+        sx={typographySx}
       >
         Current Downloads
       </Typography>
