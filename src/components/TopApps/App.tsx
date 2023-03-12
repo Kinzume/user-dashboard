@@ -12,29 +12,24 @@ import {
   WindowsSvg,
 } from "./Svgs";
 
-export default function App({
-  app,
-  os,
-  price,
-  rating,
-  reviews,
-}: {
+type AppProps = {
   app: string;
   os: string;
   price: string;
   rating: number;
   reviews: string;
-}) {
+};
+const boxAppWrapperSx = {
+  width: "auto",
+  display: "flex",
+  alignItems: "center",
+  gap: 1.5,
+  p: 2,
+};
+
+export default function App({ app, os, price, rating, reviews }: AppProps) {
   return (
-    <Box
-      sx={{
-        width: "auto",
-        display: "flex",
-        alignItems: "center",
-        gap: 1.5,
-        p: 2,
-      }}
-    >
+    <Box sx={boxAppWrapperSx}>
       <>
         {app === "Chrome" && ChromeSvg}
         {app === "Drive" && DriveSvg}
@@ -55,6 +50,7 @@ export default function App({
     </Box>
   );
 }
+
 function Info({ app, os, price }: { app: string; os: string; price: string }) {
   return (
     <Box sx={{ minWidth: "10rem" }}>
@@ -77,6 +73,7 @@ function OperatingSystem({ operatingSystem }: { operatingSystem: string }) {
     </Box>
   );
 }
+const priceSx = {};
 function Price({ price }: { price: string }): JSX.Element {
   return (
     <Typography
