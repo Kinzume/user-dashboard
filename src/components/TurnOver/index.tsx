@@ -1,3 +1,3 @@
-import TurnOver from "./TurnOver";
+import Turnover from "./Turnover";
 
-export default TurnOver;
+export default Turnover;

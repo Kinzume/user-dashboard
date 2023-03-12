@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import CallToAction from "./CallToAction";
 import News from "./News";
-import TurnOver from "./TurnOver";
+import Turnover from "./Turnover";
 import Downloads from "./Downloads";
 import InstalledArea from "./InstalledArea";
 import Invoices from "./Invoices";
@@ -38,7 +38,7 @@ export default function Main() {
             item
             xs={12}
           >
-            <TurnOver />
+            <Turnover />
           </Grid>
           <Grid
             item

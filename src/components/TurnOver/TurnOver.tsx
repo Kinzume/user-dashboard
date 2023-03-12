@@ -1,7 +1,7 @@
+import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Widget from "./Widget";
 import { visuallyHidden } from "@mui/utils";
-import Box from "@mui/material/Box";
 
 const data = [
   {
@@ -30,7 +30,7 @@ const data = [
   },
 ];
 
-export default function TurnOver() {
+export default function Turnover() {
   return (
     <>
       <Box sx={visuallyHidden}>

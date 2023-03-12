@@ -17,6 +17,23 @@ type Props = {
   series: ApexAxisChartSeries;
 };
 
+const paperWrapperSx = {
+  flexGrow: "1",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  py: 1.5,
+  px: 2,
+  borderRadius: 4,
+};
+const boxTrendSx = {
+  display: "flex",
+  alignItems: "center",
+  gap: 0.5,
+  width: "fit-content",
+};
+const trendingIconSx = { borderRadius: 5, p: 0.4, typography: "h6" };
+
 export default function Widget({
   title,
   trend,
@@ -68,58 +85,33 @@ export default function Widget({
   return (
     <Paper
       elevation={3}
-      sx={{
-        flexGrow: "1",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        py: 1.5,
-        px: 2,
-        borderRadius: 4,
-      }}
+      sx={paperWrapperSx}
     >
       <Box sx={{ display: "flex", flexDirection: "column", gap: 0.4 }}>
         <Typography sx={{ typography: "body2" }}>{title}</Typography>
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 0.5,
-            width: "fit-content",
-          }}
-        >
+        <Box sx={boxTrendSx}>
           {trend === "increase" ? (
             <TrendingUpIcon
-              sx={{
-                color: "green",
-                backgroundColor: "#adff2f69",
-                borderRadius: 5,
-                p: 0.4,
-                typography: "h6",
-              }}
+              sx={[
+                trendingIconSx,
+                { color: "green", backgroundColor: "#adff2f69" },
+              ]}
             />
           ) : trend === "decrease" ? (
             <TrendingDownIcon
-              sx={{
-                color: "#b10000",
-                backgroundColor: "#ff353545",
-                borderRadius: 5,
-                p: 0.4,
-                typography: "h6",
-              }}
+              sx={[
+                trendingIconSx,
+                { color: "#b10000", backgroundColor: "#ff353545" },
+              ]}
             />
           ) : (
             <TrendingFlatIcon
-              sx={{
-                color: "grey",
-                backgroundColor: "#b3b3b359",
-                borderRadius: 5,
-                p: 0.4,
-                typography: "h6",
-              }}
+              sx={[
+                trendingIconSx,
+                { color: "grey", backgroundColor: "#b3b3b359" },
+              ]}
             />
           )}
-
           <Typography sx={{ typography: "caption" }}>{growth}</Typography>
         </Box>
         <Typography sx={{ typography: "h6" }}>{total}</Typography>
