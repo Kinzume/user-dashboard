@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { ReactComponent as Logo } from "../../assets/undraw_dashboard_re_3b76.svg";
 
-export default function Section1() {
+export default function CallToAction() {
   return (
     <Box
       sx={{

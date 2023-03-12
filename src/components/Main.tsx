@@ -1,16 +1,16 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Section1 from "./Section1/Section1";
-import Section2 from "./Section2/Section2";
-import Section3 from "./Section3/Section3";
-import Section4 from "./Section4/Section4";
-import Section5 from "./Section5/Section5";
-import Section6 from "./Section6/Section6";
-import Section7 from "./Section7/Section7";
-import Section8 from "./Section8/Section8";
-import Section9 from "./Section9/Section9";
-import Section10 from "./Section10/Section10";
+import CallToAction from "./CallToAction";
+import News from "./News";
+import TurnOver from "./TurnOver";
+import Downloads from "./Downloads";
+import InstalledArea from "./InstalledArea";
+import Invoices from "./Invoices";
+import TopApps from "./TopApps";
+import InstalledCountries from "./InstalledCountries/InstalledCountries";
+import TopAuthors from "./TopAuthors/TopAuthors";
+import Enlistments from "./Enlistments";
 
 export default function Main() {
   return (
@@ -25,20 +25,20 @@ export default function Main() {
             xs={12}
             md={8}
           >
-            <Section1 />
+            <CallToAction />
           </Grid>
           <Grid
             item
             xs={12}
             md={4}
           >
-            <Section2 />
+            <News />
           </Grid>
           <Grid
             item
             xs={12}
           >
-            <Section3 />
+            <TurnOver />
           </Grid>
           <Grid
             item
@@ -46,7 +46,7 @@ export default function Main() {
             md={6}
             lg={4}
           >
-            <Section4 />
+            <Downloads />
           </Grid>
           <Grid
             item
@@ -54,7 +54,7 @@ export default function Main() {
             md={6}
             lg={8}
           >
-            <Section5 />
+            <InstalledArea />
           </Grid>
           <Grid
             item
@@ -62,7 +62,7 @@ export default function Main() {
             md={12}
             lg={8}
           >
-            <Section6 />
+            <Invoices />
           </Grid>
           <Grid
             item
@@ -70,7 +70,7 @@ export default function Main() {
             md={6}
             lg={4}
           >
-            <Section7 />
+            <TopApps />
           </Grid>
           <Grid
             item
@@ -78,7 +78,7 @@ export default function Main() {
             md={6}
             lg={4}
           >
-            <Section8 />
+            <InstalledCountries />
           </Grid>
           <Grid
             item
@@ -86,7 +86,7 @@ export default function Main() {
             md={6}
             lg={4}
           >
-            <Section9 />
+            <TopAuthors />
           </Grid>
           <Grid
             item
@@ -94,7 +94,7 @@ export default function Main() {
             md={6}
             lg={4}
           >
-            <Section10 />
+            <Enlistments />
           </Grid>
         </Grid>
       </Container>

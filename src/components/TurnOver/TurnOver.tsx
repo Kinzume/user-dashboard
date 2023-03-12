@@ -30,7 +30,7 @@ const data = [
   },
 ];
 
-export default function Section3() {
+export default function TurnOver() {
   return (
     <>
       <Box sx={visuallyHidden}>

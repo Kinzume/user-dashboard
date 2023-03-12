@@ -1,6 +1,6 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./Section2.css";
+import "./News.css";
 import Box from "@mui/material/Box";
 import Slider from "react-slick";
 import { Settings } from "react-slick/index";
@@ -16,7 +16,7 @@ const initialState = {
   currentSlide: 0,
   nextSlide: 0,
 };
-export default function Section2() {
+export default function News() {
   const [active, setActive] = useState(initialState);
   const settings: Settings = {
     arrows: false,

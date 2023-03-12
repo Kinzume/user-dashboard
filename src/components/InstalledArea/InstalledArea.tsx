@@ -34,7 +34,7 @@ const previousYear = [
   },
 ];
 
-export default function Section5() {
+export default function InstalledArea() {
   const config: ApexOptions = {
     chart: {
       id: "basic-line",

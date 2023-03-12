@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { ApexOptions } from "apexcharts";
 
-export default function Section4() {
+export default function Downloads() {
   const config: ApexOptions = {
     chart: {
       zoom: {

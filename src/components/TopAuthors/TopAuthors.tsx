@@ -5,7 +5,7 @@ import useRandomData from "./useRandomData";
 import AuthorLoading from "./AuthorLoading";
 import AuthorError from "./AuthorError";
 
-export default function Section9() {
+export default function TopAuthors() {
   const { loading, error, results } = useRandomData();
   return (
     <Paper

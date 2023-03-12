@@ -1,6 +1,4 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./Section2.css";
+import "./News.css";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { LazyLoadImage } from "react-lazy-load-image-component";

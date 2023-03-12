@@ -53,7 +53,7 @@ const data = [
   },
 ];
 
-export default function Section7() {
+export default function TopApps() {
   return (
     <Paper
       elevation={3}

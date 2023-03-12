@@ -5,7 +5,7 @@ import InvoiceTable from "./InvoiceTable";
 import Button from "@mui/material/Button";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-export default function Section6() {
+export default function Invoices() {
   return (
     <Paper
       elevation={3}
