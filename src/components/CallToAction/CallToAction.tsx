@@ -3,18 +3,18 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { ReactComponent as Logo } from "../../assets/undraw_dashboard_re_3b76.svg";
 
+const boxSx = {
+  height: "100%",
+  display: "flex",
+  flexDirection: { xs: "column", md: "row" },
+  borderRadius: 4,
+  background: "linear-gradient(135deg, #4d3fb54d, #4d3fb587)",
+  overflow: "hidden",
+};
+
 export default function CallToAction() {
   return (
-    <Box
-      sx={{
-        height: "100%",
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        borderRadius: 4,
-        background: "linear-gradient(135deg, #4d3fb54d, #4d3fb587)",
-        overflow: "hidden",
-      }}
-    >
+    <Box sx={boxSx}>
       <Box
         sx={{
           display: "flex",
