@@ -2,19 +2,17 @@ import Box from "@mui/material/Box/Box";
 import CountryName from "./CountryName";
 import Downloads from "./Downloads";
 
-export default function Country({
-  name,
-  flag,
-  downloads,
-}: {
+type CountryProps = {
   name: string;
   flag: React.FunctionComponent<
     React.SVGProps<SVGSVGElement> & {
       title?: string | undefined;
     }
   >;
-  downloads: { [index: string]: string }[];
-}) {
+  downloads: [{ android: string }, { windows: string }, { apple: string }];
+};
+
+export default function Country({ name, flag, downloads }: CountryProps) {
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <CountryName
