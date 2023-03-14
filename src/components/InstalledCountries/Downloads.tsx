@@ -45,38 +45,32 @@ const WindowsSvg = (
   />
 );
 
-function OperatingSystem({
-  download,
-}: {
-  download: { [index: string]: string };
-}) {
+const boxWrapperSx = {
+  flexGrow: "1",
+  display: "flex",
+  alignItems: "center",
+  opacity: "0.7",
+};
+
+type OS = { android: string } | { apple: string } | { windows: string };
+
+function OperatingSystem({ download }: { download: OS }) {
   const operatingSystem = Object.keys(download)[0];
   return (
-    <Box
-      sx={{
-        flexGrow: "1",
-        display: "flex",
-        alignItems: "center",
-        opacity: "0.7",
-      }}
-    >
+    <Box sx={boxWrapperSx}>
       <>
         {operatingSystem === "android" && AndroidSvg}
         {operatingSystem === "apple" && AppleSvg}
         {operatingSystem === "windows" && WindowsSvg}
       </>
       <Typography sx={{ typography: "caption" }}>
-        {download[operatingSystem]}
+        {Object.values(download)}
       </Typography>
     </Box>
   );
 }
 
-export default function Downloads({
-  downloads,
-}: {
-  downloads: { [index: string]: string }[];
-}) {
+export default function Downloads({ downloads }: { downloads: OS[] }) {
   return (
     <>
       {downloads.map((download, index) => (

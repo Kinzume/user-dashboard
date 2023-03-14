@@ -1,7 +1,7 @@
 /**
  *
- * @param min Lower bound
- * @param max Upper bound
+ * @param {number} min Lower bound
+ * @param {number} max Upper bound
  * @returns Number between `min` and `max`
  */
 export function getRandomArbitrary(min: number, max: number) {

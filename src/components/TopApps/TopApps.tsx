@@ -2,6 +2,14 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import App from "./App";
 
+type data = {
+  appID: number;
+  app: string;
+  os: string;
+  price: string;
+  rating: number;
+  reviews: string;
+};
 const data = [
   {
     appID: 0,
@@ -53,7 +61,7 @@ const data = [
   },
 ];
 
-export default function Section7() {
+export default function TopApps() {
   return (
     <Paper
       elevation={3}

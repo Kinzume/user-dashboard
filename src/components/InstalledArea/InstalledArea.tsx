@@ -34,7 +34,21 @@ const previousYear = [
   },
 ];
 
-export default function Section5() {
+const paperWrapperSx = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  p: 3,
+  borderRadius: 3,
+};
+const boxYearSx = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  width: "100%",
+};
+
+export default function InstalledArea() {
   const config: ApexOptions = {
     chart: {
       id: "basic-line",
@@ -103,25 +117,12 @@ export default function Section5() {
   return (
     <Paper
       elevation={3}
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        p: 3,
-        borderRadius: 3,
-      }}
+      sx={paperWrapperSx}
     >
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          width: "100%",
-        }}
-      >
+      <Box sx={boxYearSx}>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <Typography
-            variant={"h2"}
+            variant="h2"
             sx={{ fontWeight: 500, typography: "h6" }}
           >
             Area Installed
@@ -135,8 +136,8 @@ export default function Section5() {
             label="Year"
             onChange={handleChange}
           >
-            <MenuItem value={"2022"}>2022</MenuItem>
-            <MenuItem value={"2021"}>2021</MenuItem>
+            <MenuItem value="2022">2022</MenuItem>
+            <MenuItem value="2021">2021</MenuItem>
           </Select>
         </FormControl>
       </Box>
